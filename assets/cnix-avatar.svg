@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect x="8" y="8" width="496" height="496" rx="112" fill="#0B1220"/>
+  <rect x="8" y="8" width="496" height="496" rx="112" fill="none" stroke="#1E293B" stroke-width="4"/>
+  <g stroke="#7DD3FC" stroke-width="26" stroke-linecap="round">
+    <line x1="256" y1="118" x2="256" y2="288"/>
+    <line x1="181" y1="161" x2="331" y2="247"/>
+    <line x1="331" y1="161" x2="181" y2="247"/>
+  </g>
+  <g fill="#7DD3FC">
+    <circle cx="256" cy="118" r="20"/>
+    <circle cx="181" cy="161" r="20"/>
+    <circle cx="331" cy="161" r="20"/>
+    <circle cx="181" cy="247" r="20"/>
+    <circle cx="331" cy="247" r="20"/>
+    <circle cx="256" cy="288" r="20"/>
+  </g>
+  <text x="256" y="412" text-anchor="middle" font-family="Inter, SF Pro Display, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="112" font-weight="700" letter-spacing="2" fill="#F8FAFC">cnix</text>
+</svg>
