@@ -1,0 +1,22 @@
+name: nix flake check
+
+on:
+  workflow_call:
+    inputs:
+      timeout-minutes:
+        required: false
+        type: number
+        default: 30
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.timeout-minutes }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - name: nix flake check (all systems)
+        run: nix flake check --all-systems --keep-going --print-build-logs
