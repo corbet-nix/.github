@@ -10,4 +10,4 @@ Describe the tests or other checks performed.
 
 - [ ] I have read and agree to version 1.0 of the Individual Contributor License
   Agreement at
-  https://github.com/corbet-labs/.github/blob/cla-v1.0/CLA.md.
+  https://github.com/corbet-nix/.github/blob/cla-v1.0/CLA.md.

@@ -1,24 +1,50 @@
 # Corbet Nix
 
-Reusable NixOS / system-manager / home-manager / nixidy mechanisms. Mechanism
-public, values private.
+Reusable Nix mechanisms for NixOS, system-manager, home-manager, and nixidy.
+Mechanism public, values private: this org ships generic configuration
+mechanisms. Host-specific values, topology, and secrets live outside these
+repositories.
 
-Default outbound license for this org is `MIT OR Apache-2.0`. `nixnas` remains
-the deliberate Apache-2.0 appliance exception. `nixcards` is excepted entirely
-— stillborn product, FSL, stays in labs.
+Default outbound license is `MIT OR Apache-2.0`. `nixnas` is the deliberate
+Apache-2.0 appliance exception.
 
 ## Family
 
-Hubs (`nixnas`, `nixarch`, `nixvps`, `nixk3s`) define machine context and
-management planes. Modules own exactly one concern and attach to hubs. Full
-contract: hubs vs modules, planes R1–R8, mechanism-vs-values split.
+Hubs define machine context and the management planes configuration arrives
+through. Modules own exactly one concern and attach to hubs.
+
+| Hub | Context |
+|---|---|
+| `nixnas` | USB-boot storage appliance |
+| `nixarch` | Declarative Arch/CachyOS via system-manager + home-manager |
+| `nixvps` | Tiny cloud / constrained machines |
+| `nixk3s` | Cluster layer, nests on a host hub |
+
+Everything else is a module: one concern, plane-targeted
+(`nixosModules`, `systemManagerModules`, `homeManagerModules`,
+`nixidyModules`), optional coupling by option value, never by flake input.
+
+## Using
+
+```nix
+{
+  inputs.nixram.url = "github:corbet-nix/nixram";
+}
+```
+
+Each repository documents its own options, levels, and verification status.
+Values marked extrapolated are reasoned, not measured; `experiments/` tracks
+what still needs measuring.
 
 ## Contributing
 
-Default instructions in `CONTRIBUTING.md`. Canonical ICLA v1.0 lives at
-[corbet-labs/.github `cla-v1.0`](https://github.com/corbet-labs/.github/blob/cla-v1.0/CLA.md) —
-reference it, don't fork it. PR affirmation is the acceptance record until the
-CLA Assistant app is authorized.
+Default instructions are in `CONTRIBUTING.md`. The canonical Individual
+Contributor License Agreement for this organization is version 1.0 at
+[`cla-v1.0`](https://github.com/corbet-nix/.github/blob/cla-v1.0/CLA.md).
+The pull-request affirmation is the acceptance record.
 
-Security reports belong in each project's private GitHub advisory form. For
-general information, visit [corbet.ch](https://corbet.ch).
+## Security
+
+Report vulnerabilities through the affected repository's private GitHub
+security advisory form. Do not open public issues for unpatched
+vulnerabilities. See `SECURITY.md` in this repository for details.
