@@ -1,0 +1,43 @@
+name: Bug report
+description: Report a reproducible defect in a stable mechanism.
+title: "[bug]: "
+labels: [bug]
+body:
+  - type: input
+    id: repo
+    attributes:
+      label: Repository and version
+      description: Repo name plus tag or commit SHA.
+      placeholder: "nixram @ v0.2.0"
+    validations:
+      required: true
+  - type: input
+    id: plane
+    attributes:
+      label: Hub and plane
+      description: Which hub and which module class.
+      placeholder: "nixarch / systemManagerModules"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: Smallest flake snippet plus commands run. No private values.
+    validations:
+      required: true
+  - type: input
+    id: nixversion
+    attributes:
+      label: Nix version and system
+      description: Output of nix --version plus uname -m.
+      placeholder: "nix 2.28, x86_64-linux"
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: No private hostnames, IPs, user paths, credentials, or secrets are included.
+          required: true
