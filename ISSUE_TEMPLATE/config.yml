@@ -1,5 +1,1 @@
 blank_issues_enabled: false
-contact_links:
-  - name: Question or discussion
-    url: https://github.com/orgs/corbet-nix/discussions
-    about: Ask about usage, planes, or hub fit before filing a bug.

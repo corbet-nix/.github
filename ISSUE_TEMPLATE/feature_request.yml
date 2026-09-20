@@ -1,0 +1,26 @@
+name: Feature request
+description: Propose a new generic mechanism or option.
+title: "[feat]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What generic, host-independent problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Proposed options and plane (nixosModules, systemManagerModules, homeManagerModules, nixidyModules). No private values.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: No private hostnames, IPs, user paths, credentials, or secrets are included.
+          required: true

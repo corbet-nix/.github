@@ -3,6 +3,13 @@
 These instructions apply by default to repositories that do not provide their
 own `CONTRIBUTING.md`.
 
+## Outbound license
+
+Contributions accepted into a repository are published under that
+repository's outbound `LICENSE`. The organization default is
+`MIT OR Apache-2.0`; a repository states any exception in its own
+`README.md` and `LICENSE`.
+
 ## Before submitting
 
 - Create focused commits and include tests for behavior changes.
