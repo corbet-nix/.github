@@ -1,0 +1,35 @@
+name: nix darwin check (throttled mac lane)
+
+# The ONLY macOS job in this org. macOS costs ~10.3x Linux minutes and a
+# Mac-heavy past got an org flagged, so this lane is throttled by policy,
+# not by code: callers may invoke it ONLY on release tags, nightly
+# schedule, or PRs touching darwin paths (paths-filter) — never on every
+# push. Eval-only, like the Linux lane; what needs no Darwin kernel stays
+# on ubuntu-latest. See knowledge/coding/nix-publication-gate.md section L.
+
+on:
+  workflow_call:
+    inputs:
+      timeout-minutes:
+        required: false
+        type: number
+        default: 30
+
+jobs:
+  check-mac:
+    runs-on: macos-latest
+    timeout-minutes: ${{ inputs.timeout-minutes }}
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: nix flake check (darwin systems)
+        run: nix flake check --all-systems --keep-going --print-build-logs
