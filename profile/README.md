@@ -28,7 +28,7 @@ Everything else is a module: one concern, plane-targeted
 
 ```nix
 {
-  inputs.nixram.url = "github:corbet-nix/nixram";
+  inputs.nixram.url = "github:corbet-nix/nixram-corbet-ch";
 }
 ```
 
